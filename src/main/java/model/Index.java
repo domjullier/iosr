@@ -1,4 +1,4 @@
-	package model;
+package model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -6,9 +6,9 @@ import java.util.Date;
 import java.util.Map;
 
 public class Index implements Serializable {
-	
+
 	private static final long serialVersionUID = 2217758364436385895L;
-	
+
 	private String id;
 	private BigDecimal currentValue;
 	private Map<Date, BigDecimal> historicValues;

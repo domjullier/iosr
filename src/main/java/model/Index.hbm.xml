@@ -1,18 +1,29 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2013-04-07 20:54:23 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 2013-04-07 23:17:10 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="model.Index" table="INDEX">
-        <id name="id" type="java.lang.String">
-            <column name="ID" />
-            <generator class="assigned" />
-        </id>
-        <property name="currentValue" type="java.math.BigDecimal">
-            <column name="CURRENTVALUE" />
-        </property>
-        <property name="currency" type="java.lang.String">
-            <column name="CURRENCY" />
-        </property>
-    </class>
+	<class name="model.Index" table="INDEX">
+		<id name="id" type="java.lang.String">
+			<column name="ID" />
+			<generator class="assigned" />
+		</id>
+		<property name="currentValue" type="java.math.BigDecimal">
+			<column name="CURRENTVALUE" />
+		</property>
+		<map name="historicValues" table="HISTORICVALUES" lazy="true">
+			<key>
+				<column name="ID" />
+			</key>
+			<map-key type="java.util.Date">
+				<column name="DATE" />
+			</map-key>
+			<element type="java.math.BigDecimal">
+				<column name="VALUE" />
+			</element>
+		</map>
+		<property name="currency" type="java.lang.String">
+			<column name="CURRENCY" />
+		</property>
+	</class>
 </hibernate-mapping>
