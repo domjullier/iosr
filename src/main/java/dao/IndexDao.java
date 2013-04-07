@@ -7,12 +7,13 @@ import java.util.Map;
 import model.Index;
 
 public interface IndexDao extends GenericDao<Index, String> {
-	
-	Map<Date, BigDecimal> getValuesHistory(String id, Date start, Date end);
-	
+
 	BigDecimal getCurrentValue(String id);
-	
-	void setValue(String id, Date date, BigDecimal value);
-	
+
+	void setCurrentValue(String id, BigDecimal value);
+
+	Map<Date, BigDecimal> getHistoricValues(String id, Date start, Date end);
+
+	void setHistoricValue(String id, Date date, BigDecimal value);
 
 }

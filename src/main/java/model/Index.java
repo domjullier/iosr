@@ -1,4 +1,4 @@
-package model;
+	package model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -10,7 +10,8 @@ public class Index implements Serializable {
 	private static final long serialVersionUID = 2217758364436385895L;
 	
 	private String id;
-	private Map<Date, BigDecimal> values;
+	private BigDecimal currentValue;
+	private Map<Date, BigDecimal> historicValues;
 	private String currency;
 
 	public void setId(String id) {
@@ -21,12 +22,20 @@ public class Index implements Serializable {
 		return id;
 	}
 
-	public void setValues(Map<Date, BigDecimal> values) {
-		this.values = values;
+	public BigDecimal getCurrentValue() {
+		return currentValue;
 	}
 
-	public Map<Date, BigDecimal> getValues() {
-		return values;
+	public void setCurrentValue(BigDecimal currentValue) {
+		this.currentValue = currentValue;
+	}
+
+	public void setHistoricValues(Map<Date, BigDecimal> historicValues) {
+		this.historicValues = historicValues;
+	}
+
+	public Map<Date, BigDecimal> getHistoricValues() {
+		return historicValues;
 	}
 
 	public void setCurrency(String currency) {
