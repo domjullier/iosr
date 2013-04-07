@@ -6,6 +6,8 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.service.ServiceRegistry;
+import org.hibernate.service.ServiceRegistryBuilder;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -13,14 +15,15 @@ import org.testng.Assert;
 
 public class IndexTest {
 	private SessionFactory sessionFactory;
+	private ServiceRegistry serviceRegistry;
 
 	@BeforeMethod
 	protected void setUp() {
-		// A SessionFactory is set up once for an application
-		sessionFactory = new Configuration().configure() // configures settings
-															// from
-															// hibernate.cfg.xml
-				.buildSessionFactory();
+		Configuration configuration = new Configuration();
+		configuration.configure();
+		serviceRegistry = new ServiceRegistryBuilder().applySettings(
+				configuration.getProperties()).buildServiceRegistry();
+		sessionFactory = configuration.buildSessionFactory(serviceRegistry);
 	}
 
 	@AfterMethod

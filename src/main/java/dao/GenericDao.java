@@ -5,11 +5,11 @@ import java.io.Serializable;
 public interface GenericDao<T, PK extends Serializable>
 {
 
-    PK create(T newInstance);
+    T create(T newInstance);
 
     T read(PK id);
 
-    void update(T transientObject);
+    T update(T transientObject);
 
     void delete(T persistentObject);
 }
