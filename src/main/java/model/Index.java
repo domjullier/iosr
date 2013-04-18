@@ -3,6 +3,7 @@ package model;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
 public class Index implements Serializable {
@@ -11,7 +12,7 @@ public class Index implements Serializable {
 
 	private String id;
 	private BigDecimal currentValue;
-	private Map<Date, BigDecimal> historicValues;
+	private Map<Date, BigDecimal> historicValues = new HashMap<Date, BigDecimal>();
 	private String currency;
 
 	public void setId(String id) {
@@ -28,6 +29,7 @@ public class Index implements Serializable {
 
 	public void setCurrentValue(BigDecimal currentValue) {
 		this.currentValue = currentValue;
+        historicValues.put(new Date(), currentValue);
 	}
 
 	public void setHistoricValues(Map<Date, BigDecimal> historicValues) {

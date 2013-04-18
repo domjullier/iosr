@@ -1,6 +1,7 @@
 package dao;
 
 import java.math.BigDecimal;
+import java.util.Collection;
 import java.util.Date;
 import java.util.Map;
 
@@ -15,5 +16,7 @@ public interface IndexDao extends GenericDao<Index, String> {
 	Map<Date, BigDecimal> getHistoricValues(String id, Date start, Date end);
 
 	void setHistoricValue(String id, Date date, BigDecimal value);
+
+    Collection<Index> getAllCurrentValues();
 
 }

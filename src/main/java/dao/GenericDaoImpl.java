@@ -12,7 +12,7 @@ import org.hibernate.Transaction;
 public class GenericDaoImpl<T, PK extends Serializable> implements
 		GenericDao<T, PK> {
 
-	private SessionFactory sessionFactory = SessionFactoryProvider
+	protected SessionFactory sessionFactory = SessionFactoryProvider
 			.getSessionFactory();
 
 	public T create(T newInstance) {
