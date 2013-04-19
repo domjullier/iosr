@@ -14,18 +14,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package pl.edu.agh.iosr.openshift.servlet;
+package servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.security.Principal;
+import java.math.BigDecimal;
 
 import javax.annotation.Resource;
 import javax.jms.Connection;
 import javax.jms.ConnectionFactory;
 import javax.jms.Destination;
 import javax.jms.JMSException;
+import javax.jms.Message;
 import javax.jms.MessageProducer;
+import javax.jms.ObjectMessage;
 import javax.jms.Queue;
 import javax.jms.Session;
 import javax.jms.TextMessage;
@@ -35,6 +37,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import model.Index;
 
 /**
  * <p>
@@ -76,6 +80,9 @@ public class testclient extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
+
+		
+		
 		String user = req.getRemoteUser();
 		req.isUserInRole("guest");
 		resp.setContentType("text/html");
@@ -98,9 +105,23 @@ public class testclient extends HttpServlet {
 			connection.start();
 			out.write("<h2>1Following messages will be send to the destination:</h2>");
 			TextMessage message = session.createTextMessage();
+			
+			Index index = new Index();
+			
+			index.setId("TestIndexA");
+			index.setCurrentValue(new BigDecimal("1234345"));
+	
+			
+			ObjectMessage mymsg = session.createObjectMessage(index);
+//			mymsg.setIndexName("TestIndex");
+//			mymsg.setIndexValue(55);
+			
 			for (int i = 0; i < MSG_COUNT; i++) {
 				message.setText("This is message " + (i + 1));
-				messageProducer.send(message);
+				messageProducer.send(mymsg);
+				
+				
+				
 				out.write("Message ("+i+"): " + message.getText() +"</br>");
 			}
 			out.write("<p><i>Go to your JBoss Application Server console or Server log to see the result of messages processing</i></p>");
