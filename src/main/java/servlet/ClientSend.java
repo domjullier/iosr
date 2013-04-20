@@ -147,7 +147,10 @@ public class ClientSend extends HttpServlet {
 
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
+		
+		PrintWriter out = resp.getWriter();
 		doGet(req, resp);
+		out.write("<h2>Value is:" + req.getParameter("Value") + "for index: " + req.getParameter("index") + "</h2>");
 	}
 
 }

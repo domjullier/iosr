@@ -51,7 +51,6 @@ public class ClientBean implements java.io.Serializable {
 		
 		List<String> myIndexes = new ArrayList<String>();
 		
-		myIndexes.add("start");
 		for (Index index : indexDao.getAllCurrentValues())
 		{
 
