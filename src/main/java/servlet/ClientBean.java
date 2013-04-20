@@ -54,15 +54,13 @@ public class ClientBean implements java.io.Serializable {
 		myIndexes.add("start");
 		for (Index index : indexDao.getAllCurrentValues())
 		{
-			myIndexes.add(index.getId());
 
 			if(request.isUserInRole(index.getId()))
 			{
 				myIndexes.add(index.getId());
 			}
-				myIndexes.add("false");
 		}
-		myIndexes.add("end");
+
 		return myIndexes;
 		
 	}

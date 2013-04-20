@@ -41,6 +41,10 @@ pageContext.setAttribute("myIndexes", myIndexes);
 <p>Indexes to change:<p>
 <c:forEach items="${myIndexes}" var="item">
     ${item} <br />
+    <FORM METHOD=POST ACTION="ClientSend">
+	Enter new value for index ${item}  <INPUT TYPE=TEXT NAME=${item} SIZE=20><BR>
+	<P><INPUT TYPE=SUBMIT>
+</FORM>
 </c:forEach>
 <p>end<p>
 
