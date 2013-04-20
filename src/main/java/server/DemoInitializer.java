@@ -17,7 +17,7 @@ public class DemoInitializer {
 
     private IndexDao indexDao = new IndexDaoImpl();
 
-    void initialize() {
+    public void initialize() {
         Index index = new Index();
         index.setId("WIG");
         index.setCurrentValue(new BigDecimal("1234.56"));

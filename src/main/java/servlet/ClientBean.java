@@ -7,6 +7,8 @@ import model.Index;
 import java.util.ArrayList;
 import java.util.List;
 
+import server.DemoInitializer;
+
 public class ClientBean implements java.io.Serializable {
 
 	private static final long serialVersionUID = -6948827418149135145L;
@@ -18,7 +20,7 @@ public class ClientBean implements java.io.Serializable {
 	
 	public ClientBean()
 	{
-		
+		new DemoInitializer().initialize();
 		
 		
 		testIndexes.add("indA");
