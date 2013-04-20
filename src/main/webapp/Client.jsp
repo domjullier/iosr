@@ -6,7 +6,7 @@
 <body>
 
 <jsp:useBean id="students" 
-                    class="servlet.ClientBean"> 
+                    class="servlet.TestJSP"> 
    
 </jsp:useBean>
 
