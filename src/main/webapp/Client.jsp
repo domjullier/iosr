@@ -1,8 +1,7 @@
 <%@ page import="servlet.*"%>
-
 <html>
 <head>
-<title>2get and set properties Example</title>
+<title>get and set properties Example</title>
 </head>
 <body>
 
@@ -11,10 +10,8 @@
    
 </jsp:useBean>
 
-<p>TestIndexes: </p>
-
-
-
+<p>Student First Name: 
+  
 
 </body>
 </html>
