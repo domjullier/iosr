@@ -13,6 +13,7 @@ public class ClientBean implements java.io.Serializable {
 	private IndexDao indexDao = new IndexDaoImpl();
 	
 	List<String> indexes;
+	List<String> TestIndexes;
 	
 	public ClientBean()
 	{
@@ -21,6 +22,12 @@ public class ClientBean implements java.io.Serializable {
 		{
 			indexes.add(index.getId());
 		}
+		
+		TestIndexes.add("indA");
+		TestIndexes.add("indb");
+		TestIndexes.add("indc");
+		TestIndexes.add("indd");
+		
            
 	}
 	
@@ -28,4 +35,7 @@ public class ClientBean implements java.io.Serializable {
 	      return indexes;
 	   }
 
+	public List<String> getTestIndexes(){
+	      return TestIndexes;
+	   }
 }
