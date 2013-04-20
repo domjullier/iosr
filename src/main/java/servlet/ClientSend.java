@@ -109,8 +109,8 @@ public class ClientSend extends HttpServlet {
 			
 			Index index = new Index();
 			
-			index.setId("TestIndexA");
-			index.setCurrentValue(new BigDecimal("1234345"));
+			index.setId(req.getParameter("index"));
+			index.setCurrentValue(new BigDecimal(req.getParameter("Value")));
 	
 			
 			ObjectMessage mymsg = session.createObjectMessage(index);
