@@ -13,7 +13,7 @@ public class ClientBean implements java.io.Serializable {
 	
 	private IndexDao indexDao = new IndexDaoImpl();
 	
-	List<String> indexes;
+	List<String> indexes = new ArrayList<String>();
 	List<String> testIndexes = new ArrayList<String>();
 	
 	public ClientBean()
