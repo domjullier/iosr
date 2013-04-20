@@ -32,7 +32,7 @@ ClientBean clientBean = new ClientBean();
 
 
 <p>once again:<p>
-<c:forEach items="${clientBean.getMyIndexes(request)}" var="item">
+<c:forEach items="${students.getMyIndexes(request)}" var="item">
     ${item} <br />
 </c:forEach>
 <p>end<p>
