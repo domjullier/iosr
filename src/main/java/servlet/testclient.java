@@ -60,7 +60,7 @@ public class testclient extends HttpServlet {
 
 	private static final int MSG_COUNT = 5;
 
-	
+	//test
 	@Resource(mappedName = "java:/ConnectionFactory")
 	private ConnectionFactory connectionFactory;
 
