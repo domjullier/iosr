@@ -24,6 +24,11 @@ public class ClientBean implements java.io.Serializable {
 	{
 		new DemoInitializer().initialize();
 		
+		for (Index index : indexDao.getAllCurrentValues())
+		{
+			
+			indexes.add(index.getId());
+		}
 		
 		testIndexes.add("indA");
 		testIndexes.add("indb");
@@ -34,14 +39,6 @@ public class ClientBean implements java.io.Serializable {
 	}
 	
 	public List<String> getIndexes(){
-		
-		indexes.add("x");
-		for (Index index : indexDao.getAllCurrentValues())
-		{
-			
-			indexes.add(index.getId());
-		}
-		indexes.add("endx");
 		
 	      return indexes;
 	   }
@@ -54,12 +51,18 @@ public class ClientBean implements java.io.Serializable {
 		
 		List<String> myIndexes = new ArrayList<String>();
 		
+		myIndexes.add("start");
 		for (Index index : indexDao.getAllCurrentValues())
 		{
+			myIndexes.add(index.getId());
+
 			if(request.isUserInRole(index.getId()))
+			{
 				myIndexes.add(index.getId());
+			}
+				myIndexes.add("false");
 		}
-		
+		myIndexes.add("end");
 		return myIndexes;
 		
 	}
