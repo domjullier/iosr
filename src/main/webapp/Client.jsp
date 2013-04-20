@@ -19,6 +19,13 @@
     <p>${index}</p>
 </c:forEach>
 
+<p>All available indexes:<p>
+<c:forEach items="${students.indexes}" var="index">
+    <p>${index}</p>
+</c:forEach>
+
+
+
 
 
 
