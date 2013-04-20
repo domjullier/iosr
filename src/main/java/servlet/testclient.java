@@ -89,7 +89,7 @@ public class testclient extends HttpServlet {
 		PrintWriter out = resp.getWriter();
 		Connection connection = null;
 		out.write("<h1>asdfQuickstart: Example demonstrates the use of <strong>JMS 1.1</strong> and <strong>EJB 3.1 Message-Driven Bean</strong> in JBoss Enterprise Application 6 or JBoss AS 7.1.0.</h1>");
-		 out.write("<p>Hello " + user + "</em> has role guest: " + req.isUserInRole("guest") + "</p>");
+		 out.write("<p>Hello " + user + "</em> has role WIG: " + req.isUserInRole("WIG") + "</p>");
 		try {
 		    Destination destination;
 		    if (req.getParameterMap().keySet().contains("topic")) {
