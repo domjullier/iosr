@@ -30,9 +30,7 @@ ClientBean clientBean = new ClientBean();
     <p>${index}</p>
 </c:forEach>
 
-<%
-ClientBean clientBean = new ClientBean();
-%>
+
 
 
 
