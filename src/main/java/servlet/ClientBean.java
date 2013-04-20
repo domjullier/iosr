@@ -39,4 +39,11 @@ public class ClientBean implements java.io.Serializable {
 	public List<String> getTestIndexes(){
 	      return testIndexes;
 	   }
+	
+	public List<String> getMyIndexes(String userid){
+		
+		testIndexes.add(userid);
+		return testIndexes;
+		
+	}
 }

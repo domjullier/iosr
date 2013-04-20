@@ -12,7 +12,7 @@
    
 </jsp:useBean>
 
-<H1>Welcome <% request.getRemoteUser(); %></H1><br>
+<H1>Welcome <%= request.getRemoteUser() %></H1><br>
 
 <p>You can change the following indexes:<p>
 <c:forEach items="${students.testIndexes}" var="index">
