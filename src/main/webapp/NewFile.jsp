@@ -11,8 +11,7 @@
                     value="Zara"/>
    <jsp:setProperty name="students" property="lastName" 
                     value="Ali"/>
-   <jsp:setProperty name="students" property="age" 
-                    value="10"/>
+   
 </jsp:useBean>
 
 <p>Student First Name: 
