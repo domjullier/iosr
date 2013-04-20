@@ -1,5 +1,5 @@
 <%@ page import="servlet.ClientBean"%>
-<%@ page import="java.util.List" %>
+<%@ page import="java.util.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
@@ -27,8 +27,13 @@
 
 <%
 ClientBean clientBean = new ClientBean();
-List<String> myIndexes = clientBean.getMyIndexes(request);
+List<String> myIndexes = (clientBean.getMyIndexes(request));
+for( Iterator i = myIndexes.iterator() ; i.hasNext(); ) {
+	   out.println( (String) i.next() );
+}
 %>
+
+
 
 <p>My indexes:<p>
 <c:forEach items=myIndexes var="index">
