@@ -5,6 +5,10 @@
 
 <%
 ClientBean clientBean = new ClientBean();
+
+List<String> myIndexes = clientBean.getMyIndexes(request);
+
+pageContext.setAttribute("myIndexes", myIndexes);
 %>
 
 <html>
@@ -21,7 +25,7 @@ ClientBean clientBean = new ClientBean();
 <H1>Welcome <%= request.getRemoteUser() %></H1><br>
 
 <p>You can change the following indexes:<p>
-<c:forEach items="${clientBean.testIndexes}" var="testindex">
+<c:forEach items="${students.testIndexes()}" var="testindex">
     <p>${testindex}</p>
 </c:forEach>
 
@@ -35,7 +39,7 @@ ClientBean clientBean = new ClientBean();
 
 
 <p>once again:<p>
-<c:forEach items="${clientBean.getMyIndexes(request)}" var="item">
+<c:forEach items="${myIndexes}" var="item">
     ${item} <br />
 </c:forEach>
 <p>end<p>
