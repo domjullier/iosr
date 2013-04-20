@@ -90,6 +90,7 @@ public class ClientSend extends HttpServlet {
 		Connection connection = null;
 		out.write("<h1>asdfQuickstart: Example demonstrates the use of <strong>JMS 1.1</strong> and <strong>EJB 3.1 Message-Driven Bean</strong> in JBoss Enterprise Application 6 or JBoss AS 7.1.0.</h1>");
 		 out.write("<p>Hello " + user + "</em> has role guest: " + req.isUserInRole("guest") + "</p>");
+		 out.write("<h2>Value is:" + req.getParameter("Value") + "for index: " + req.getParameter("index") + "</h2>");
 		try {
 		    Destination destination;
 		    if (req.getParameterMap().keySet().contains("topic")) {
@@ -148,9 +149,9 @@ public class ClientSend extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		PrintWriter out = resp.getWriter();
+		//PrintWriter out = resp.getWriter();
 		doGet(req, resp);
-		out.write("<h2>Value is:" + req.getParameter("Value") + "for index: " + req.getParameter("index") + "</h2>");
+		//out.write("<h2>Value is:" + req.getParameter("Value") + "for index: " + req.getParameter("index") + "</h2>");
 	}
 
 }
