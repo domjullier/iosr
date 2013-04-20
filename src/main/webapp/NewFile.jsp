@@ -1,3 +1,4 @@
+<%@ page import="servlet.*"%>
 <html>
 <head>
 <title>get and set properties Example</title>
