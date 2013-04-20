@@ -3,7 +3,7 @@
 
 <html>
 <head>
-<title>2get and set properties Example</title>
+<title>Broker Client - Main menu</title>
 </head>
 <body>
 
@@ -12,9 +12,11 @@
    
 </jsp:useBean>
 
-<p>TestIndexes: </p>
+<H1>Welcome <% request.getRemoteUser(); %></H1><br>
+
+<p>You can change the following indexes:<p>
 <c:forEach items="${students.testIndexes}" var="index">
-    <p>Question: ${index}</p>
+    <p>${index}</p>
 </c:forEach>
 
 
