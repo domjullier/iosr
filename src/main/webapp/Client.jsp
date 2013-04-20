@@ -3,7 +3,7 @@
 
 <html>
 <head>
-<title>get and set properties Example</title>
+<title>2get and set properties Example</title>
 </head>
 <body>
 
@@ -13,7 +13,7 @@
 </jsp:useBean>
 
 <p>TestIndexes: </p>
-<c:forEach items="${testIndexes}" var="index">
+<c:forEach items="${students.testIndexes}" var="index">
     <p>Question: ${index}</p>
 </c:forEach>
 
