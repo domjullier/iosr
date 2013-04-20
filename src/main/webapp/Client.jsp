@@ -31,7 +31,7 @@ List<String> myIndexes = clientBean.getMyIndexes(request);
 %>
 
 <p>My indexes:<p>
-<c:forEach items="myIndexes" var="index">
+<c:forEach items=myIndexes var="index">
     <p>${index}</p>
 </c:forEach>
 
