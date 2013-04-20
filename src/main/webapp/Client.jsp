@@ -27,18 +27,15 @@
 
 <%
 ClientBean clientBean = new ClientBean();
-List<String> myIndexes = (clientBean.getMyIndexes(request));
-for( Iterator i = myIndexes.iterator() ; i.hasNext(); ) {
-	   out.println( (String) i.next() );
-}
 %>
 
+
+
 <p>once again:<p>
-<c:forEach items="${myIndexes}" var="index">
-    <p>${index}</p>
+<c:forEach items="${clientBean.getMyIndexes(request)}" var="item">
+    ${item} <br />
 </c:forEach>
 <p>end<p>
-
 
 
 
