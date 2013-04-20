@@ -1,4 +1,5 @@
-<%@ page import="servlet.*"%>
+<%@ page import="servlet.ClientBean"%>
+<%@ page import="java.util.List" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
@@ -23,6 +24,17 @@
 <c:forEach items="${students.indexes}" var="index">
     <p>${index}</p>
 </c:forEach>
+
+<%
+ClientBean clientBean = new ClientBean();
+List<String> myIndexes = clientBean.getMyIndexes(request.getRemoteUser());
+%>
+
+<p>My indexes:<p>
+<c:forEach items="${myIndexes}" var="index">
+    <p>${index}</p>
+</c:forEach>
+
 
 
 
