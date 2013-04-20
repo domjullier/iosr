@@ -7,6 +7,8 @@ import model.Index;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import server.DemoInitializer;
 
 public class ClientBean implements java.io.Serializable {
@@ -48,9 +50,9 @@ public class ClientBean implements java.io.Serializable {
 	      return testIndexes;
 	   }
 	
-	public List<String> getMyIndexes(String userid){
+	public List<String> getMyIndexes(HttpServletRequest request){
 		
-		testIndexes.add(userid);
+		testIndexes.add(request.getRemoteUser());
 		return testIndexes;
 		
 	}
