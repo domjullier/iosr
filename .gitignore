@@ -4,3 +4,8 @@
 /.classpath
 /test-output
 /.idea
+target
+.settings/*
+!.settings/.jsdtscope
+.project
+.classpath
