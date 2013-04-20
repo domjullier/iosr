@@ -4,6 +4,7 @@ import dao.IndexDao;
 import dao.IndexDaoImpl;
 import model.Index;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ClientBean implements java.io.Serializable {
@@ -13,7 +14,7 @@ public class ClientBean implements java.io.Serializable {
 	private IndexDao indexDao = new IndexDaoImpl();
 	
 	List<String> indexes;
-	List<String> testIndexes;
+	List<String> testIndexes = new ArrayList<String>();
 	
 	public ClientBean()
 	{
