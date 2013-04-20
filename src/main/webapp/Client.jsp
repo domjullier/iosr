@@ -15,8 +15,8 @@
 <H1>Welcome <%= request.getRemoteUser() %></H1><br>
 
 <p>You can change the following indexes:<p>
-<c:forEach items="${students.testIndexes}" var="index">
-    <p>${index}</p>
+<c:forEach items="${students.testIndexes}" var="testindex">
+    <p>${testindex}</p>
 </c:forEach>
 
 <p>All available indexes:<p>

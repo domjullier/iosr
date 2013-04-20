@@ -19,10 +19,7 @@ public class ClientBean implements java.io.Serializable {
 	public ClientBean()
 	{
 		
-		for (Index index : indexDao.getAllCurrentValues())
-		{
-			indexes.add(index.getId());
-		}
+		
 		
 		testIndexes.add("indA");
 		testIndexes.add("indb");
@@ -33,6 +30,13 @@ public class ClientBean implements java.io.Serializable {
 	}
 	
 	public List<String> getIndexes(){
+		
+		for (Index index : indexDao.getAllCurrentValues())
+		{
+			indexes.add("x");
+			indexes.add(index.getId());
+		}
+		
 	      return indexes;
 	   }
 
