@@ -38,7 +38,7 @@ pageContext.setAttribute("myIndexes", myIndexes);
 
 
 
-<p>once again:<p>
+<p>Indexes to change:<p>
 <c:forEach items="${myIndexes}" var="item">
     ${item} <br />
 </c:forEach>

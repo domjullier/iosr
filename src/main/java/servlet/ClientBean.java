@@ -52,8 +52,15 @@ public class ClientBean implements java.io.Serializable {
 	
 	public List<String> getMyIndexes(HttpServletRequest request){
 		
-		testIndexes.add(request.getRemoteUser());
-		return testIndexes;
+		List<String> myIndexes = new ArrayList<String>();
+		
+		for (Index index : indexDao.getAllCurrentValues())
+		{
+			if(request.isUserInRole(index.getId()))
+				myIndexes.add(index.getId());
+		}
+		
+		return myIndexes;
 		
 	}
 }
