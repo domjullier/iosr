@@ -13,9 +13,6 @@
 </jsp:useBean>
 
 <p>TestIndexes: </p>
-<c:forEach items="${students.testIndexes}" var="index">
-    <p>Question: ${index}</p>
-</c:forEach>
 
 
 
