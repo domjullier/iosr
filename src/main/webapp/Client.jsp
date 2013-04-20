@@ -33,7 +33,11 @@ for( Iterator i = myIndexes.iterator() ; i.hasNext(); ) {
 }
 %>
 
-
+<p>once again:<p>
+<c:forEach items="${myIndexes}" var="index">
+    <p>${index}</p>
+</c:forEach>
+<p>end<p>
 
 
 
