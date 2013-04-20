@@ -35,11 +35,6 @@ for( Iterator i = myIndexes.iterator() ; i.hasNext(); ) {
 
 
 
-<p>My indexes:<p>
-<c:forEach items=myIndexes var="index">
-    <p>${index}</p>
-</c:forEach>
-
 
 
 
