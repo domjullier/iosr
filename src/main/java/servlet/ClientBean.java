@@ -31,11 +31,13 @@ public class ClientBean implements java.io.Serializable {
 	
 	public List<String> getIndexes(){
 		
+		indexes.add("x");
 		for (Index index : indexDao.getAllCurrentValues())
 		{
-			indexes.add("x");
+			
 			indexes.add(index.getId());
 		}
+		indexes.add("endx");
 		
 	      return indexes;
 	   }
