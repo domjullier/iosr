@@ -116,7 +116,7 @@ public class ClientSend extends HttpServlet {
 			
 			messageProducer.send(mymsg);
 			
-			out.write("Send update for index: " + index.getId() + ". New Value is: " + index.getCurrentValue() + ".</br>");
+			out.write("Sent update for index: " + index.getId() + ". New Value is: " + index.getCurrentValue() + ".</br>");
 //			mymsg.setIndexName("TestIndex");
 //			mymsg.setIndexValue(55);
 			
@@ -128,7 +128,7 @@ public class ClientSend extends HttpServlet {
 				
 				//out.write("Message ("+i+"): " + message.getText() +"</br>");
 			//}
-			out.write("<p><i>Go to your JBoss Application Server console or Server log to see the result of messages processing</i></p>");
+			//out.write("<p><i>Go to your JBoss Application Server console or Server log to see the result of messages processing</i></p>");
 
 		} catch (JMSException e) {
 			e.printStackTrace();
