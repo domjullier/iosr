@@ -11,12 +11,15 @@ public class SessionFactoryProvider {
 	private static SessionFactory sessionFactory;
 	private static ServiceRegistry serviceRegistry;
 
+    static {
+        Configuration configuration = new Configuration();
+        configuration.configure();
+        serviceRegistry = new ServiceRegistryBuilder().applySettings(
+                configuration.getProperties()).buildServiceRegistry();
+        sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+    }
+
 	public static SessionFactory getSessionFactory() throws HibernateException {
-		Configuration configuration = new Configuration();
-		configuration.configure();
-		serviceRegistry = new ServiceRegistryBuilder().applySettings(
-				configuration.getProperties()).buildServiceRegistry();
-		sessionFactory = configuration.buildSessionFactory(serviceRegistry);
 		return sessionFactory;
 	}
 
