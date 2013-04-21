@@ -9,12 +9,11 @@ import org.hibernate.service.ServiceRegistryBuilder;
 public class SessionFactoryProvider {
 
 	private static SessionFactory sessionFactory;
-	private static ServiceRegistry serviceRegistry;
 
     static {
         Configuration configuration = new Configuration();
         configuration.configure();
-        serviceRegistry = new ServiceRegistryBuilder().applySettings(
+        ServiceRegistry serviceRegistry = new ServiceRegistryBuilder().applySettings(
                 configuration.getProperties()).buildServiceRegistry();
         sessionFactory = configuration.buildSessionFactory(serviceRegistry);
     }
