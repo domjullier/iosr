@@ -51,6 +51,8 @@
         <!-- Drop and re-create the database schema on startup -->
         <property name="hbm2ddl.auto">create</property>
 
+        <property name="initializer">server.DemoInitializer</property>
+
         <mapping resource="model/Index.hbm.xml"/>
 
     </session-factory>

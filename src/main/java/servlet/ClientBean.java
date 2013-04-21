@@ -22,8 +22,6 @@ public class ClientBean implements java.io.Serializable {
 	
 	public ClientBean()
 	{
-		new DemoInitializer().initialize();
-		
 		for (Index index : indexDao.getAllCurrentValues())
 		{
 			

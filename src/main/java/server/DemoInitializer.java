@@ -13,10 +13,11 @@ import java.math.BigDecimal;
  * Time: 20:40
  * To change this template use File | Settings | File Templates.
  */
-public class DemoInitializer {
+public class DemoInitializer implements Initializer {
 
     private IndexDao indexDao = new IndexDaoImpl();
 
+    @Override
     public void initialize() {
         Index index;
 

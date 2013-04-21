@@ -17,11 +17,6 @@ public class Server extends HttpServlet {
 
     private IndexDao indexDao = new IndexDaoImpl();
 
-    public Server() {
-        new DemoInitializer().initialize();
-    }
-
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
