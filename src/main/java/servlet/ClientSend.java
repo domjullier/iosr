@@ -88,9 +88,9 @@ public class ClientSend extends HttpServlet {
 		resp.setContentType("text/html");
 		PrintWriter out = resp.getWriter();
 		Connection connection = null;
-		out.write("<h1>asdfQuickstart: Example demonstrates the use of <strong>JMS 1.1</strong> and <strong>EJB 3.1 Message-Driven Bean</strong> in JBoss Enterprise Application 6 or JBoss AS 7.1.0.</h1>");
-		 out.write("<p>Hello " + user + "</em> has role guest: " + req.isUserInRole("guest") + "</p>");
-		 out.write("<h2>Value is:" + req.getParameter("Value") + "for index: " + req.getParameter("index") + "</h2>");
+		//out.write("<h1>asdfQuickstart: Example demonstrates the use of <strong>JMS 1.1</strong> and <strong>EJB 3.1 Message-Driven Bean</strong> in JBoss Enterprise Application 6 or JBoss AS 7.1.0.</h1>");
+		 //out.write("<p>Hello " + user + "</em> has role guest: " + req.isUserInRole("guest") + "</p>");
+		 //out.write("<h2>Value is:" + req.getParameter("Value") + "for index: " + req.getParameter("index") + "</h2>");
 		try {
 		    Destination destination;
 		    if (req.getParameterMap().keySet().contains("topic")) {
@@ -98,13 +98,13 @@ public class ClientSend extends HttpServlet {
 		    } else {
 		        destination = queue;
 		    }
-		    out.write("<p>Sending messages to <em>" + destination + "</em></p>");
+		    out.write("<H2>Sending messages to <em>" + destination + "</em></H2>");
 			connection = connectionFactory.createConnection();
 			Session session = connection.createSession(false,
 					Session.AUTO_ACKNOWLEDGE);
 			MessageProducer messageProducer = session.createProducer(destination);
 			connection.start();
-			out.write("<h2>1Following messages will be send to the destination:</h2>");
+			//out.write("<h2>1Following messages will be send to the destination:</h2>");
 			TextMessage message = session.createTextMessage();
 			
 			Index index = new Index();
@@ -112,19 +112,22 @@ public class ClientSend extends HttpServlet {
 			index.setId(req.getParameter("index"));
 			index.setCurrentValue(new BigDecimal(req.getParameter("Value")));
 	
-			
 			ObjectMessage mymsg = session.createObjectMessage(index);
+			
+			messageProducer.send(mymsg);
+			
+			out.write("Send update for index: " + index.getId() + ". New Value is: " + index.getCurrentValue() + ".</br>");
 //			mymsg.setIndexName("TestIndex");
 //			mymsg.setIndexValue(55);
 			
-			for (int i = 0; i < MSG_COUNT; i++) {
-				message.setText("This is message " + (i + 1));
-				messageProducer.send(mymsg);
+			//for (int i = 0; i < MSG_COUNT; i++) {
+				//message.setText("This is message " + (i + 1));
+				//messageProducer.send(mymsg);
 				
 				
 				
-				out.write("Message ("+i+"): " + message.getText() +"</br>");
-			}
+				//out.write("Message ("+i+"): " + message.getText() +"</br>");
+			//}
 			out.write("<p><i>Go to your JBoss Application Server console or Server log to see the result of messages processing</i></p>");
 
 		} catch (JMSException e) {

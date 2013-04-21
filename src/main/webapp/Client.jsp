@@ -25,7 +25,7 @@ pageContext.setAttribute("myIndexes", myIndexes);
 <H1>Welcome <%= request.getRemoteUser() %></H1><br>
 
 
-<H2>Your indexes:</H2>>
+<H2>Your indexes:</H2>
 <c:forEach items="${myIndexes}" var="item">
     ${item} <br />
     <FORM METHOD=POST ACTION="ClientSend">
