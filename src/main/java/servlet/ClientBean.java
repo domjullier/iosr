@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import server.DemoInitializer;
 
-public class ClientBean implements java.io.Serializable {
+public class ClientBean implements java.io.Serializable{
 
 	private static final long serialVersionUID = -6948827418149135145L;
 	
