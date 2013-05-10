@@ -16,9 +16,9 @@
         <auth-constraint>
             <role-name>guest</role-name>
         </auth-constraint>
-        <user-data-constraint>
-        	<transport-guarantee>CONFIDENTIAL</transport-guarantee>
-  		</user-data-constraint>
+        <!--user-data-constraint>
+        	<transport-guarantee></transport-guarantee>
+  		</user-data-constraint!-->
     </security-constraint>
     
      <login-config>
