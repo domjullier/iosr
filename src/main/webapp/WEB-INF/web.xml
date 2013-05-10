@@ -7,7 +7,7 @@
          metadata-complete="false">
 
 
-<!--context-param>
+<context-param>
         <param-name>javax.faces.PROJECT_STAGE</param-name>
         <param-value>Development</param-value>
 </context-param>
@@ -15,7 +15,7 @@
     <servlet-name>Faces Servlet</servlet-name>
     <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
     <load-on-startup>1</load-on-startup>
-</servlet-->
+</servlet>
 
 <servlet-mapping>
     <servlet-name>Faces Servlet</servlet-name>
