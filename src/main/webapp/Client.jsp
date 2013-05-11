@@ -21,7 +21,7 @@ pageContext.setAttribute("myIndexes", myIndexes);
                     class="servlet.ClientBean"> 
    
 </jsp:useBean>
-<form method="POST" action="/Logout">  
+<form method="POST" action="/Logout.jsp">  
  <input type="submit" value="Logout">  
 </form>
 
