@@ -21,6 +21,9 @@ pageContext.setAttribute("myIndexes", myIndexes);
                     class="servlet.ClientBean"> 
    
 </jsp:useBean>
+<form method="POST" action="/logout">  
+ <input type="submit" value="Logout">  
+</form>
 
 <H1>Welcome <%= request.getRemoteUser() %></H1><br>
 
