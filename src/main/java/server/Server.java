@@ -16,12 +16,7 @@ import java.io.PrintWriter;
 @WebServlet("/Server")
 public class Server extends HttpServlet {
 
-    @Inject
-    public void setIndexDao(IndexDao indexDao) {
-        this.indexDao = indexDao;
-    }
-
-    private IndexDao indexDao;
+    @Inject private IndexDao indexDao;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
