@@ -19,28 +19,26 @@ public class DemoInitializer implements Initializer {
 
     @Override
     public void initialize() {
+
+        String[][] values = new String[][]{
+                {"WIG", "1234.56", "PLN"},
+                {"WIG20", "6543.21", "PLN"},
+                {"TestIndexA", "8888.88", "EUR"},
+        };
+
         Index index;
 
-        index = new Index();
-        index.setId("WIG");
-        index.setCurrentValue(new BigDecimal("1234.56"));
-        index.setCurrency("PLN");
+        for (String[] val : values) {
 
-        indexDao.create(index);
+            index = new Index();
+            index.setId(val[0]);
+            index.setCurrentValue(new BigDecimal(val[1]));
+            index.setCurrency(val[2]);
 
-        index = new Index();
-        index.setId("WIG20");
-        index.setCurrentValue(new BigDecimal("6543.21"));
-        index.setCurrency("PLN");
+            indexDao.create(index);
 
-        indexDao.create(index);
+        }
 
-        index = new Index();
-        index.setId("TestIndexA");
-        index.setCurrentValue(new BigDecimal("8888.88"));
-        index.setCurrency("EUR");
-
-        indexDao.create(index);
     }
 
 }
