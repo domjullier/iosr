@@ -4,6 +4,7 @@ import dao.IndexDao;
 import dao.IndexDaoImpl;
 import model.Index;
 
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,7 +16,12 @@ import java.io.PrintWriter;
 @WebServlet("/Server")
 public class Server extends HttpServlet {
 
-    private IndexDao indexDao = new IndexDaoImpl();
+    @Inject
+    public void setIndexDao(IndexDao indexDao) {
+        this.indexDao = indexDao;
+    }
+
+    private IndexDao indexDao;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
