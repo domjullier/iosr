@@ -13,7 +13,7 @@ pageContext.setAttribute("myIndexes", myIndexes);
 
 <html>
 <head>
-<title>Broker Client - Main menu</title>
+<title>Broker Client - Main menu </title>
 </head>
 <body>
 
