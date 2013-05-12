@@ -1,7 +1,6 @@
 package server;
 
 import dao.IndexDao;
-import dao.IndexDaoImpl;
 import model.Index;
 
 import javax.inject.Inject;
