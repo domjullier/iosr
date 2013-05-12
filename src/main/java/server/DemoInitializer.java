@@ -21,9 +21,14 @@ public class DemoInitializer implements Initializer {
     public void initialize() {
 
         String[][] values = new String[][]{
-                {"WIG", "1234.56", "PLN"},
-                {"WIG20", "6543.21", "PLN"},
-                {"TestIndexA", "8888.88", "EUR"},
+                {"PZU", "448.00", "PLN"},
+                {"PKO BP", "33.18", "PLN"},
+                {"KGHM POLSKA MIEDZ SA", "146.05", "PLN"},
+                {"PEKAO", "150.70", "PLN"},
+                {"PKN ORLEN", "48.32", "PLN"},
+                {"PGE", "16.81", "PLN"},
+                {"PGNIG", "5.68", "PLN"},
+                {"LPP", "7011.00", "PLN"},
         };
 
         Index index;
