@@ -1,9 +1,9 @@
 package server;
 
 import dao.IndexDao;
+import dao.IndexDaoImpl;
 import model.Index;
 
-import javax.inject.Inject;
 import java.math.BigDecimal;
 
 /**
@@ -15,8 +15,7 @@ import java.math.BigDecimal;
  */
 public class DemoInitializer implements Initializer {
 
-    @Inject
-    private IndexDao indexDao;
+    private IndexDao indexDao = new IndexDaoImpl();
 
     @Override
     public void initialize() {
