@@ -48,12 +48,11 @@ public class ClientBean implements java.io.Serializable{
 		
 		for (Index index : indexDao.getAllCurrentValues())
 		{
-				
-			myIndexes.add(index.getId());
-			//if(request.isUserInRole(index.getId()))
-			//{
-			//	myIndexes.add(index.getId());
-			//}
+
+			if(request.isUserInRole(index.getId()))
+			{
+				myIndexes.add(index.getId());
+			}
 		}
 
 		return myIndexes;
