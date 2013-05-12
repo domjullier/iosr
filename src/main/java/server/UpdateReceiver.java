@@ -1,11 +1,11 @@
 package server;
 
 import dao.IndexDao;
-import dao.IndexDaoImpl;
 import model.Index;
 
 import javax.ejb.ActivationConfigProperty;
 import javax.ejb.MessageDriven;
+import javax.inject.Inject;
 import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageListener;
@@ -25,7 +25,8 @@ public class UpdateReceiver implements MessageListener {
 
     private final static Logger LOGGER = Logger.getLogger(UpdateReceiver.class
             .toString());
-    final IndexDao indexDao = new IndexDaoImpl();
+
+    @Inject private IndexDao indexDao;
 
     public void onMessage(Message rcvMessage) {
 

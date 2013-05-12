@@ -1,21 +1,19 @@
 package servlet;
 
 import dao.IndexDao;
-import dao.IndexDaoImpl;
 import model.Index;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
-
-import server.DemoInitializer;
 
 public class ClientBean implements java.io.Serializable{
 
 	private static final long serialVersionUID = -6948827418149135145L;
 	
-	private IndexDao indexDao = new IndexDaoImpl();
+	@Inject private IndexDao indexDao;
 	
 	List<String> indexes = new ArrayList<String>();
 	List<String> testIndexes = new ArrayList<String>();
