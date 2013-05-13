@@ -1,4 +1,3 @@
-/*
 package server;
 
 import dao.IndexDao;
@@ -48,4 +47,3 @@ public class UpdateReceiver implements MessageListener {
     }
 
 }
-*/
