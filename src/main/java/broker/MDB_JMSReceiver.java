@@ -1,4 +1,3 @@
-/*
 package broker;
 
 import java.util.logging.Logger;
@@ -43,5 +42,4 @@ public class MDB_JMSReceiver implements MessageListener {
 		}
 	}
 
-}d
-*/
+}
