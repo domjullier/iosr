@@ -43,5 +43,5 @@ public class MDB_JMSReceiver implements MessageListener {
 		}
 	}
 
-}
+}d
 */
