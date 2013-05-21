@@ -38,6 +38,7 @@ public class ClientBean implements java.io.Serializable{
 	      return indexes;
 	   }
 
+	//
 	public List<String> getTestIndexes(){
 	      return testIndexes;
 	   }
