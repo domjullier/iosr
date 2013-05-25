@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet("/Client")
-public class ClientBean extends HttpServlet {
+public class ClientController extends HttpServlet {
 
 	private static final long serialVersionUID = -6948827418149135145L;
 	
@@ -25,7 +25,7 @@ public class ClientBean extends HttpServlet {
 	List<String> indexes = new ArrayList<String>();
 	List<String> testIndexes = new ArrayList<String>();
 	
-	public ClientBean()
+	public ClientController()
 	{
 		for (Index index : indexDao.getAllCurrentValues())
 		{
@@ -41,7 +41,7 @@ public class ClientBean extends HttpServlet {
 
 		//tring c = request.getParameter("type");
 
-		ClientBean cb = new ClientBean();
+		ClientController cb = new ClientController();
 		
 		request.setAttribute("myIndexes", cb.getMyIndexes(request));
 		RequestDispatcher view = request.getRequestDispatcher("Client.jsp");

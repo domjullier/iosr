@@ -1,10 +1,11 @@
-<%@ page import="servlet.ClientBean"%>
+<%@ page import="servlet.ClientController"%>
 <%@ page import="java.util.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
 <%
-//ClientBean clientBean = new ClientBean();
+//Cli
+	//ClientBean clientBean = new ClientBean();
 
 //List<String> myIndexes = clientBean.getMyIndexes(request);
 
@@ -21,7 +22,7 @@ pageContext.setAttribute("myIndexes", myIndexes);
 <body>
 
 <jsp:useBean id="students" 
-                    class="servlet.ClientBean"> 
+                    class="servlet.ClientController"> 
    
 </jsp:useBean>
 <form method="POST" action="/Logout.jsp">  
