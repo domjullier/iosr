@@ -4,11 +4,17 @@ import dao.IndexDao;
 import dao.IndexDaoImpl;
 import model.Index;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClientBean implements java.io.Serializable{
+public class ClientBean extends HttpServlet {
 
 	private static final long serialVersionUID = -6948827418149135145L;
 	
@@ -24,7 +30,20 @@ public class ClientBean implements java.io.Serializable{
 			
 			indexes.add(index.getId());
 		}
+		
            
+	}
+	
+	public void doPost( HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException
+	{
+
+		//tring c = request.getParameter("type");
+
+		ClientBean cb = new ClientBean();
+		
+		request.setAttribute("myIndexes", cb.getMyIndexes(request));
+		RequestDispatcher view = request.getRequestDispatcher("Client.jsp");
+		view.forward(request, response); 
 	}
 	
 	public List<String> getIndexes(){
