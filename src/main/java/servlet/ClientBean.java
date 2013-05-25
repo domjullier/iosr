@@ -36,7 +36,7 @@ public class ClientBean extends HttpServlet {
            
 	}
 	
-	public void doPost( HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException
+	public void doGet( HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException
 	{
 
 		//tring c = request.getParameter("type");
