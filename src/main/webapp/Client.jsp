@@ -6,10 +6,7 @@
 <%
 ClientBean clientBean = new ClientBean();
 
-//List<String> myIndexes = clientBean.getMyIndexes(request);
-
-@SuppressWarnings("unchecked")
-List<String> myIndexes = (List<String>) request.getAttribute("myIndexes");
+List<String> myIndexes = clientBean.getMyIndexes(request);
 
 pageContext.setAttribute("myIndexes", myIndexes);
 %>
