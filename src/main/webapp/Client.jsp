@@ -4,9 +4,12 @@
 
 
 <%
-ClientBean clientBean = new ClientBean();
+//ClientBean clientBean = new ClientBean();
 
-List<String> myIndexes = clientBean.getMyIndexes(request);
+//List<String> myIndexes = clientBean.getMyIndexes(request);
+
+@SuppressWarnings("unchecked")
+List<String> myIndexes = (List<String>) request.getAttribute("myIndexes");
 
 pageContext.setAttribute("myIndexes", myIndexes);
 %>
