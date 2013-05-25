@@ -24,12 +24,6 @@ public class ClientBean implements java.io.Serializable{
 			
 			indexes.add(index.getId());
 		}
-		
-		testIndexes.add("indA");
-		testIndexes.add("indb");
-		testIndexes.add("indc");
-		testIndexes.add("indd");
-		
            
 	}
 	
