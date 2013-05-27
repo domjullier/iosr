@@ -3,13 +3,14 @@ package servlet;
 import java.math.BigDecimal;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import model.Index;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import dao.GenericDaoImpl;
 
 public class ClientControllerTest {
 
@@ -45,10 +46,21 @@ public class ClientControllerTest {
 		
 		Assert.assertEquals(containsTestIndex, true);
 		
-		
+		containsTestIndex = false;
 		//get all only indexex for user with role Test
+		MockRequestObject mo = new MockRequestObject();
 		
+		List<String> resultMy = cc.getMyIndexes((HttpServletRequest) mo);
 		
+		for (String indexMyTest : resultMy)
+		{
+			if (indexMyTest.contentEquals("Test"))
+			{
+				containsTestIndex = true;
+			}
+				
+		}
+		Assert.assertEquals(containsTestIndex, true);
 		
 		throw new RuntimeException("Test not implemented");
 	}
