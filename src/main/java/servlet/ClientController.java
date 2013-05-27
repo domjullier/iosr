@@ -39,8 +39,6 @@ public class ClientController extends HttpServlet {
 	public void doGet( HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException
 	{
 
-		//tring c = request.getParameter("type");
-
 		ClientController cb = new ClientController();
 		
 		request.setAttribute("myIndexes", cb.getMyIndexes(request));
@@ -53,10 +51,6 @@ public class ClientController extends HttpServlet {
 	      return indexes;
 	   }
 
-	//
-	public List<String> getTestIndexes(){
-	      return testIndexes;
-	   }
 	
 	public List<String> getMyIndexes(HttpServletRequest request){
 		
