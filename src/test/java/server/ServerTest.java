@@ -25,12 +25,12 @@ public class ServerTest {
         assertTitleEquals("Broker Client - Main menu");
         
         //change value and check it on the server
-        setTextField("Value", "666");
+        setTextField("Value", "667");
         submit();
         
         //Check on server, if the value got updated
         gotoPage("http://market-jullier.rhcloud.com/Server");
-        assertMatch("^PZU 666.00 PLN");
+        assertMatch("^PZU 667.00 PLN");
         
     }
 }
