@@ -22,7 +22,7 @@ public class ClientController extends HttpServlet {
 	
 	private IndexDao indexDao = new IndexDaoImpl();
 	
-	List<String> indexes = new ArrayList<String>();
+	List<Index> indexes = new ArrayList<Index>();
 	List<String> testIndexes = new ArrayList<String>();
 	
 	public ClientController()
@@ -30,7 +30,7 @@ public class ClientController extends HttpServlet {
 		for (Index index : indexDao.getAllCurrentValues())
 		{
 			
-			indexes.add(index.getId());
+			indexes.add(index);
 		}
 		
            
@@ -46,17 +46,17 @@ public class ClientController extends HttpServlet {
 		view.forward(request, response); 
 	}
 	
-	public List<String> getIndexes(){
+	//public List<Index> getIndexes(){
 		
-	      return indexes;
-	   }
+	//      return indexes;
+	//   }
 
 	
 	public List<String> getMyIndexes(HttpServletRequest request){
 		
 		List<String> myIndexes = new ArrayList<String>();
 		
-		for (Index index : indexDao.getAllCurrentValues())
+		for (Index index : indexes)
 		{
 
 			if(request.isUserInRole(index.getId()))

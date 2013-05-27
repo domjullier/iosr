@@ -2,14 +2,11 @@ package servlet;
 
 import java.math.BigDecimal;
 import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-
 import model.Index;
-
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
 
 
 public class ClientControllerTest {
@@ -28,33 +25,22 @@ public class ClientControllerTest {
 		index.setCurrentValue(new BigDecimal("11.11"));
 		index.setCurrency("PLN");
 		
-		cc.indexes.add(index.getId());
+		cc.indexes.add(index);
 		
-		//get all indexes, added Test must be there
-		List<String> result = cc.getIndexes();
+		
 		
 		boolean containsTestIndex = false;
 		
-		for (String indexTest : result)
-		{
-			if (indexTest.contentEquals("Test"))
-			{
-				containsTestIndex = true;
-			}
-				
-		}
-		
-		Assert.assertEquals(containsTestIndex, true);
-		
-		containsTestIndex = false;
-		//get all only indexex for user with role Test
+		//get all only indexes for user with role Test
 		MockRequestObject mo = new MockRequestObject();
 		
-		List<String> resultMy = cc.getMyIndexes((HttpServletRequest) mo);
+		List<String> result1 = cc.getMyIndexes(mo);
 		
-		for (String indexMyTest : resultMy)
+		
+		for (String index1 : result1)
 		{
-			if (indexMyTest.contentEquals("Test"))
+			
+			if (index1.contentEquals("Test"))
 			{
 				containsTestIndex = true;
 			}
@@ -62,11 +48,23 @@ public class ClientControllerTest {
 		}
 		Assert.assertEquals(containsTestIndex, true);
 		
-		throw new RuntimeException("Test not implemented");
+		
+		containsTestIndex = false;
+		//get all only indexes for user with role Test
+		
+		
+		for (String index2 : result1)
+		{
+			
+			if (index2.contentEquals("Testxxxx"))
+			{
+				containsTestIndex = true;
+			}
+				
+		}
+		Assert.assertEquals(containsTestIndex, false);
+		
 	}
 
-	@Test
-	public void getMyIndexes() {
-		throw new RuntimeException("Test not implemented");
-	}
+	
 }
