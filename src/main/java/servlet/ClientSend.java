@@ -38,19 +38,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.Index;
 
-/**
- * <p>
- * A simple servlet 3 as client that sends several messages to a queue or a topic.
- * </p>
- * 
- * <p>
- * The servlet is registered and mapped to /HelloWorldMDBServletClient using the {@linkplain WebServlet
- * @HttpServlet}.
- * </p>
- * 
- * @author Serge Pagop (spagop@redhat.com)
- * 
- */
+
 @WebServlet("/ClientSend")
 public class ClientSend extends HttpServlet {
 
@@ -59,15 +47,9 @@ public class ClientSend extends HttpServlet {
 	//test
 	@Resource(mappedName = "java:/ConnectionFactory")
 	private ConnectionFactory connectionFactory;
-
-	//@Resource(mappedName = "java:/queue/HELLOWORLDMDBQueue")
-	//private Queue queue;
 	
 	@Resource(mappedName = "java:/queue/test")
 	private Queue queue;
-
-	//@Resource(mappedName = "java:/topic/HELLOWORLDMDBTopic")
-	//private Topic topic;
 	
 	@Resource(mappedName = "java:/topic/test")
 	private Topic topic;
@@ -78,7 +60,7 @@ public class ClientSend extends HttpServlet {
 		
 
 		
-		req.isUserInRole("guest");
+		//req.isUserInRole("guest");
 		resp.setContentType("text/html");
 		PrintWriter out = resp.getWriter();
 		Connection connection = null;
@@ -107,18 +89,7 @@ public class ClientSend extends HttpServlet {
 			messageProducer.send(mymsg);
 			
 			out.write("Sent update for index: " + index.getId() + ". New Value is: " + index.getCurrentValue() + ".</br>");
-//			mymsg.setIndexName("TestIndex");
-//			mymsg.setIndexValue(55);
-			
-			//for (int i = 0; i < MSG_COUNT; i++) {
-				//message.setText("This is message " + (i + 1));
-				//messageProducer.send(mymsg);
-				
-				
-				
-				//out.write("Message ("+i+"): " + message.getText() +"</br>");
-			//}
-			//out.write("<p><i>Go to your JBoss Application Server console or Server log to see the result of messages processing</i></p>");
+
 
 		} catch (JMSException e) {
 			e.printStackTrace();
@@ -142,9 +113,7 @@ public class ClientSend extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		//PrintWriter out = resp.getWriter();
 		doGet(req, resp);
-		//out.write("<h2>Value is:" + req.getParameter("Value") + "for index: " + req.getParameter("index") + "</h2>");
 	}
 
 }
