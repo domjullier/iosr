@@ -37,14 +37,16 @@ public class ServerTest {
         
         //change value and check it on the server
         setWorkingForm(1);
-        setTextField("Value", "167");
+        setTextField("Value", "166");
         setHiddenField("index", "PZU");
         submit();
         assertMatch("Sent update for index:");
         
+        Thread.sleep(2000);
         //Check on server, if the value got updated
         gotoPage("http://market-jullier.rhcloud.com/Server");
-        assertMatch("^PZU 167.00 PLN");
+        assertMatch("^PZU 166.00 PLN");
+        
         
         //reset to default value
         gotoPage("http://market-jullier.rhcloud.com/Client");
