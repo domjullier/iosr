@@ -1,12 +1,12 @@
 package server;
 
 /**
- * Created with IntelliJ IDEA.
- * User: Maciej
- * Date: 21.04.13
- * Time: 19:36
- * To change this template use File | Settings | File Templates.
+ * Interface for database initializer
  */
 public interface Initializer {
+
+    /**
+     * Seeds database with some data
+     */
     void initialize();
 }

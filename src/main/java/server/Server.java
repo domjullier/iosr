@@ -12,11 +12,21 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+/**
+ * Enables web access for stored current values
+ */
 @WebServlet("/Server")
 public class Server extends HttpServlet {
 
     @Inject private IndexDao indexDao;
 
+    /**
+     * Handles <code>GET</code> request
+     * @param req request from entity interested in current values of all indexes
+     * @param resp response to entity interested in current values of all indexes
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
@@ -28,6 +38,13 @@ public class Server extends HttpServlet {
 
     }
 
+    /**
+     * Handles <code>POST</code> request
+     * @param req request from entity interested in current values of all indexes
+     * @param resp response to entity interested in current values of all indexes
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {

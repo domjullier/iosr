@@ -7,16 +7,15 @@ import model.Index;
 import java.math.BigDecimal;
 
 /**
- * Created with IntelliJ IDEA.
- * User: Maciej
- * Date: 18.04.13
- * Time: 20:40
- * To change this template use File | Settings | File Templates.
+ * Seeds database with sample data for demonstration purposes
  */
 public class DemoInitializer implements Initializer {
 
     private IndexDao indexDao = new IndexDaoImpl();
 
+    /**
+     * Adds some values to the database
+     */
     @Override
     public void initialize() {
 

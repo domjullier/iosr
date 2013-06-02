@@ -8,8 +8,16 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import java.math.BigDecimal;
 import java.util.*;
 
+/**
+ * Implements <code>IndexDao</code> with transactions from <code>SessionFactory</code>
+ */
 public class IndexDaoImpl extends GenericDaoImpl<Index, String> implements IndexDao {
 
+    /**
+     * Gets current value of specified index with transaction from <code>SessionFactory</code>
+     * @param id specified index id
+     * @return specified index current value
+     */
     public BigDecimal getCurrentValue(String id) {
         Session sess = sessionFactory.openSession();
         Transaction tx = null;
@@ -29,6 +37,11 @@ public class IndexDaoImpl extends GenericDaoImpl<Index, String> implements Index
         return currentValue;
     }
 
+    /**
+     * Sets current value for specified index with transaction from <code>SessionFactory</code>
+     * @param id specified index id
+     * @param value specified index current value
+     */
     public void setCurrentValue(String id, BigDecimal value) {
         Session sess = sessionFactory.openSession();
         Transaction tx = null;
@@ -49,17 +62,34 @@ public class IndexDaoImpl extends GenericDaoImpl<Index, String> implements Index
         }
     }
 
+    /**
+     * Not implemented
+     * @param id specified index id
+     * @param start beginning of specified time span
+     * @param end end of specified time span
+     * @return nothing
+     */
     public Map<Date, BigDecimal> getHistoricValues(String id, Date start,
                                                    Date end) {
         // TODO Automatycznie generowany szkielet metody
         throw new NotImplementedException();
     }
 
+    /**
+     * Not implemented
+     * @param id specified index id
+     * @param date date of historic value
+     * @param value historic value for given date
+     */
     public void setHistoricValue(String id, Date date, BigDecimal value) {
         // TODO Automatycznie generowany szkielet metody
         throw new NotImplementedException();
     }
 
+    /**
+     * Gets current values of all indexes with transaction from <code>SessionFactory</code>
+     * @return <code>Collection</code> of <code>Index</code>es with their current values
+     */
     public Collection<Index> getAllCurrentValues() {
         Session sess = sessionFactory.openSession();
         Transaction tx = null;

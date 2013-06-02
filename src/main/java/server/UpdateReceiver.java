@@ -13,6 +13,10 @@ import javax.jms.ObjectMessage;
 import java.util.logging.Logger;
 
 
+/**
+ * Unused class, which remained after the development process
+ */
+
 @MessageDriven(
         name = "UpdateReceiver",
         activationConfig = {

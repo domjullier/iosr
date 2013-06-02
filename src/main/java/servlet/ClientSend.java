@@ -1,29 +1,22 @@
 
 package servlet;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.math.BigDecimal;
+import model.Index;
 
 import javax.annotation.Resource;
-import javax.jms.Connection;
-import javax.jms.ConnectionFactory;
-import javax.jms.Destination;
-import javax.jms.JMSException;
-import javax.jms.MessageProducer;
-import javax.jms.ObjectMessage;
-import javax.jms.Queue;
-import javax.jms.Session;
-import javax.jms.Topic;
+import javax.jms.*;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.math.BigDecimal;
 
-import model.Index;
-
-
+/**
+ * Handles Client's index update request
+ */
 @WebServlet("/ClientSend")
 public class ClientSend extends HttpServlet {
 
@@ -39,6 +32,13 @@ public class ClientSend extends HttpServlet {
 	@Resource(mappedName = "java:/topic/test")
 	private Topic topic;
 
+    /**
+     * Handles <code>GET</code> request
+     * @param req request from client
+     * @param resp response to client
+     * @throws ServletException
+     * @throws IOException
+     */
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
@@ -95,6 +95,13 @@ public class ClientSend extends HttpServlet {
 		}
 	}
 
+    /**
+     * Handles <code>POST</code> request
+     * @param req request from client
+     * @param resp response to client
+     * @throws ServletException
+     * @throws IOException
+     */
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		

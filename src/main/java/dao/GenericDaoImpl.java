@@ -9,12 +9,25 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
+/**
+ * Implements <code>GenericDao</code> with transactions from <code>SessionFactory</code>
+ * @param <T> persisted object type
+ * @param <PK> primary key type
+ */
 public class GenericDaoImpl<T, PK extends Serializable> implements
 		GenericDao<T, PK> {
 
+    /**
+     * <code>SessionFactory</code> used to handle transactions
+     */
 	protected SessionFactory sessionFactory = SessionFactoryProvider
 			.getSessionFactory();
 
+    /**
+     * Creates new instance of an object with transaction from <code>SessionFactory</code>
+     * @param newInstance instance to be created
+     * @return instance created
+     */
 	public T create(T newInstance) {
 		Session sess = sessionFactory.openSession();
 		Transaction tx = null;
@@ -32,7 +45,12 @@ public class GenericDaoImpl<T, PK extends Serializable> implements
 		return newInstance;
 	}
 
-	public T read(PK id) {
+    /**
+     * Reads object
+     * @param id primary key of object to be read with transaction from <code>SessionFactory</code>
+     * @return instance read
+     */
+    public T read(PK id) {
 		Session sess = sessionFactory.openSession();
 		Transaction tx = null;
 		List<T> result;
@@ -51,7 +69,12 @@ public class GenericDaoImpl<T, PK extends Serializable> implements
 		return result.size() > 0 ? result.get(0) : null;
 	}
 
-	public T update(T transientObject) {
+    /**
+     * Updates object
+     * @param transientObject updated version of an object to be updated with transaction from <code>SessionFactory</code>
+     * @return updated object
+     */
+    public T update(T transientObject) {
 		Session sess = sessionFactory.openSession();
 		Transaction tx = null;
 		try {
@@ -68,7 +91,11 @@ public class GenericDaoImpl<T, PK extends Serializable> implements
 		return transientObject;
 	}
 
-	public void delete(T persistentObject) {
+    /**
+     * Deletes object
+     * @param persistentObject object to be deleted with transaction from <code>SessionFactory</code>
+     */
+    public void delete(T persistentObject) {
 		Session sess = sessionFactory.openSession();
 		Transaction tx = null;
 		try {

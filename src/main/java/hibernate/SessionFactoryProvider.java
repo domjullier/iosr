@@ -7,6 +7,9 @@ import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
 import server.Initializer;
 
+/**
+ * Singleton, which provides SessionFactory configured with settings from configuration file <code>hibernate.cfg.xml</code>
+ */
 public class SessionFactoryProvider {
 
     private static SessionFactory sessionFactory;
@@ -36,6 +39,11 @@ public class SessionFactoryProvider {
 
     }
 
+    /**
+     * Provides <code>SessionFactory</code>
+     * @return configured <code>SessionFactory</code>
+     * @throws HibernateException
+     */
     public static SessionFactory getSessionFactory() throws HibernateException {
         return sessionFactory;
     }
