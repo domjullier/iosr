@@ -1,17 +1,66 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html lang="en"
-      xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>Login Error</title>
-    </head>
-    <body>
-        <h2>Invalid user name or password.</h2>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+
+    <!-- General meta information -->
+    <title>Login Error</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <!-- // General meta information -->
+
+
+    <!-- Load Javascript -->
+    <script type="text/javascript" src="./js/jquery.js"></script>
+    <script type="text/javascript" src="./js/jquery.query-2.1.7.js"></script>
+    <script type="text/javascript" src="./js/rainbows.js"></script>
+    <!-- // Load Javascipt -->
+
+    <!-- Load stylesheets -->
+    <link type="text/css" rel="stylesheet" href="css/style.css" media="screen"/>
+    <!-- // Load stylesheets -->
+
+    <script type="text/javascript">
+
+
+        $(document).ready(function () {
+
+            $("#submit1").hover(
+                    function () {
+                        $(this).animate({"opacity": "0"}, "slow");
+                    },
+                    function () {
+                        $(this).animate({"opacity": "1"}, "slow");
+                    });
+        });
+
+
+    </script>
+
+</head>
+<body>
+
+<div id="wrapper">
+    <div id="wrappertop"></div>
+
+    <div id="wrappermiddle">
+
+        <h2>Invalid user name or password.</h2> <br/> <br/> <br/>
 
         <p>Please enter a user name or password that is authorized to access this
             application. For this application, this means a user that has been
             created in the <code>file</code> realm and has been assigned to the
-            <em>group</em> of <code>TutorialUser</code>.</p>
-        <p><a href="faces/index.xhtml">Return to login page</a></p>
-    </body>
+            <em>group</em> of <code>TutorialUser</code>.</p> <br/>
+
+        <p><a href="index.xhtml">Return to login page</a></p>
+    </div>
+
+    <div id="wrapperbottom"></div>
+
+    <div id="powered">
+        <p>Powered by <a href="http://www.premiumfreebies.eu">Premiumfreebies Control Panel</a></p>
+    </div>
+</div>
+
+</body>
 </html>
