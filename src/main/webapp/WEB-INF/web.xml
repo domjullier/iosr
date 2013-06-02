@@ -41,7 +41,8 @@
     <security-constraint>
         <web-resource-collection>
             <web-resource-name>static</web-resource-name>
-            <url-pattern>/images/*</url-pattern>
+            <url-pattern>/img/*</url-pattern>
+            <url-pattern>/css/*</url-pattern>
         </web-resource-collection>
     </security-constraint>
 
