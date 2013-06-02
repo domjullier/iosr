@@ -55,6 +55,13 @@ body {
 	text-shadow: #fff 2px 2px 2px;
 }
 
+#wrappermiddle p {
+	margin-left:20px;
+	margin-right:20px;
+	font-family:Myriad Pro;
+	text-shadow: #fff 2px 2px 2px;
+}
+
 #username_input {
 	margin-left:25px;
 	position:absolute;
