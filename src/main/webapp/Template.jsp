@@ -1,10 +1,12 @@
+<%@page import="java.util.*" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
 
     <!-- General meta information -->
-    <title>Login Error</title>
+    <title><%= request.getAttribute("title") %></title>
     <meta name="keywords" content=""/>
     <meta name="description" content=""/>
     <!-- // General meta information -->
@@ -25,13 +27,13 @@
 
         $(document).ready(function () {
 
-            $("#submit1").hover(
-                    function () {
-                        $(this).animate({"opacity": "0"}, "slow");
-                    },
-                    function () {
-                        $(this).animate({"opacity": "1"}, "slow");
-                    });
+        $("#submit1").hover(
+        function () {
+        $(this).animate({"opacity": "0"}, "slow");
+        },
+        function () {
+        $(this).animate({"opacity": "1"}, "slow");
+        });
         });
 
 
@@ -45,14 +47,8 @@
 
     <div id="wrappermiddle">
 
-        <h2>Invalid user name or password.</h2> <br/> <br/> <br/>
+        <%= request.getAttribute("content") %>
 
-        <p>Please enter a user name or password that is authorized to access this
-            application. For this application, this means a user that has been
-            created in the <code>file</code> realm and has been assigned to the
-            <em>group</em> of <code>TutorialUser</code>.</p> <br/>
-
-        <p><a href="index.html">Return to login page</a></p>
     </div>
 
     <div id="wrapperbottom"></div>
@@ -61,6 +57,7 @@
         <p>Powered by <a href="http://www.premiumfreebies.eu">Premiumfreebies Control Panel</a></p>
     </div>
 </div>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
 </body>
 </html>
