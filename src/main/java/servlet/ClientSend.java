@@ -58,7 +58,7 @@ public class ClientSend extends HttpServlet {
 		   // } else {
 		        destination = queue;
 		    //}
-		    out.append("<H2>Sending messages to <em>" + destination + "</em></H2>");
+		    out.append("<H2>Sending messages to <em>" + destination + "</em></H2><br/><br/><br/>");
 			connection = connectionFactory.createConnection();
 			Session session = connection.createSession(false,
 					Session.AUTO_ACKNOWLEDGE);
@@ -79,8 +79,8 @@ public class ClientSend extends HttpServlet {
 
 		} catch (JMSException e) {
 			e.printStackTrace();
-			out.append("<h2>A problem occurred during the delivery of this message</h2>");
-			out.append("</br>");
+			out.append("<h2><br/><br/><br/>A problem occurred during the delivery of this message</h2>");
+			out.append("<br/><br/><br/>");
 			out.append("<p><i>Go your the JBoss Application Server console or Server log to see the error stack trace</i></p>");
 		} finally {
 			if (connection != null) {
