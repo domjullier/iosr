@@ -34,8 +34,10 @@ public class Server extends HttpServlet {
             throws ServletException, IOException {
         StringBuffer out = new StringBuffer();
         out.append("<h2>" + CURRENT_INDEX_VALUES + "</h2><br/><br/>");
+        out.append("<p>");
         for (Index index : indexDao.getAllCurrentValues())
             out.append(index.getId() + " " + index.getCurrentValue() + " " + index.getCurrency() + "<br/>");
+        out.append("</p>");
         req.setAttribute("title", CURRENT_INDEX_VALUES);
         req.setAttribute("content", out.toString());
         RequestDispatcher view = req.getRequestDispatcher("Template.jsp");

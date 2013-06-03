@@ -63,9 +63,9 @@ pageContext.setAttribute("myIndexes", myIndexes);
     <div id="wrappermiddle" style="height: auto;">
 
 
-<form method="POST" action="/Logout.jsp">
+        <H2><form method="POST" action="/Logout.jsp">
     <input type="submit" value="Logout">
-    </form><H2>Welcome <%= request.getRemoteUser() %><br/>Your indexes:</H2>  <br/><br/><br/><br/>
+    </form>Welcome <%= request.getRemoteUser() %><br/>Your indexes:</H2>  <br/><br/><br/><br/>
 <c:forEach items="${myIndexes}" var="item">
     <FORM METHOD=POST ACTION="ClientSend"><p>
 	Enter new value for index ${item}  <INPUT TYPE=TEXT NAME="Value" SIZE=20><BR>
