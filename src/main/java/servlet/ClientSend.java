@@ -5,6 +5,7 @@ import model.Index;
 
 import javax.annotation.Resource;
 import javax.jms.*;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,9 +21,10 @@ import java.math.BigDecimal;
 @WebServlet("/ClientSend")
 public class ClientSend extends HttpServlet {
 
-	private static final long serialVersionUID = -8314035702649252239L;
+    private static final long serialVersionUID = -8314035702649252239L;
+    public static final String UPDATE = "Update";
 
-	//test
+    //test
 	@Resource(mappedName = "java:/ConnectionFactory")
 	private ConnectionFactory connectionFactory;
 	
@@ -46,8 +48,7 @@ public class ClientSend extends HttpServlet {
 
 		
 		//req.isUserInRole("guest");
-		resp.setContentType("text/html");
-		PrintWriter out = resp.getWriter();
+        StringBuilder out = new StringBuilder();
 		Connection connection = null;
 		
 		try {
@@ -57,7 +58,7 @@ public class ClientSend extends HttpServlet {
 		   // } else {
 		        destination = queue;
 		    //}
-		    out.write("<H2>Sending messages to <em>" + destination + "</em></H2>");
+		    out.append("<H2>Sending messages to <em>" + destination + "</em></H2>");
 			connection = connectionFactory.createConnection();
 			Session session = connection.createSession(false,
 					Session.AUTO_ACKNOWLEDGE);
@@ -73,14 +74,14 @@ public class ClientSend extends HttpServlet {
 			
 			messageProducer.send(mymsg);
 			
-			out.write("Sent update for index: " + index.getId() + ". New Value is: " + index.getCurrentValue() + ".</br>");
+			out.append("<p>Sent update for index: " + index.getId() + ". New Value is: " + index.getCurrentValue() + ".</p></br>");
 
 
 		} catch (JMSException e) {
 			e.printStackTrace();
-			out.write("<h2>A problem occurred during the delivery of this message</h2>");
-			out.write("</br>");
-			out.write("<p><i>Go your the JBoss Application Server console or Server log to see the error stack trace</i></p>");
+			out.append("<h2>A problem occurred during the delivery of this message</h2>");
+			out.append("</br>");
+			out.append("<p><i>Go your the JBoss Application Server console or Server log to see the error stack trace</i></p>");
 		} finally {
 			if (connection != null) {
 				try {
@@ -89,9 +90,10 @@ public class ClientSend extends HttpServlet {
 					e.printStackTrace();
 				}
 			}
-			if(out != null) {
-				out.close();
-			}
+			req.setAttribute("title", UPDATE);
+            req.setAttribute("content", out.toString());
+            RequestDispatcher view = req.getRequestDispatcher("Template.jsp");
+            view.forward(req, resp);
 		}
 	}
 
