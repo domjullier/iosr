@@ -18,14 +18,14 @@ public class ServerTest {
 
     @Before
     public void prepare() {
-        setBaseUrl("http://market-jullier.rhcloud.com");
+        setBaseUrl("http://market-iosr.rhcloud.com");
     }
 
     @Test
     public void testLogin() throws Exception {
     	
     	
-    	setBaseUrl("http://market-jullier.rhcloud.com");
+    	setBaseUrl("http://market-iosr.rhcloud.com");
     	beginAt("/index.html");
         //clickLink("login");
         assertTitleEquals("Login Form");
@@ -44,12 +44,12 @@ public class ServerTest {
         
         Thread.sleep(2000);
         //Check on server, if the value got updated
-        gotoPage("http://market-jullier.rhcloud.com/Server");
+        gotoPage("http://market-iosr.rhcloud.com/Server");
         assertMatch("^PZU 166.00 PLN");
         
         
         //reset to default value
-        gotoPage("http://market-jullier.rhcloud.com/Client");
+        gotoPage("http://market-iosr.rhcloud.com/Client");
         setWorkingForm(1);
         setTextField("Value", "12");
         setHiddenField("index", "PZU");
