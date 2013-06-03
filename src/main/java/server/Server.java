@@ -4,6 +4,7 @@ import dao.IndexDao;
 import model.Index;
 
 import javax.inject.Inject;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,6 +19,7 @@ import java.io.PrintWriter;
 @WebServlet("/Server")
 public class Server extends HttpServlet {
 
+    private static final String CURRENT_INDEX_VALUES = "Current index values";
     @Inject private IndexDao indexDao;
 
     /**
@@ -30,12 +32,14 @@ public class Server extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        resp.setContentType("text/html");
-        PrintWriter out = resp.getWriter();
+        StringBuffer out = new StringBuffer();
+        out.append("<h2>" + CURRENT_INDEX_VALUES + "</h2><br/><br/>");
         for (Index index : indexDao.getAllCurrentValues())
-            out.write(index.getId() + " " + index.getCurrentValue() + " " + index.getCurrency() + "<br/>");
-        out.close();
-
+            out.append(index.getId() + " " + index.getCurrentValue() + " " + index.getCurrency() + "<br/>");
+        req.setAttribute("title", CURRENT_INDEX_VALUES);
+        req.setAttribute("content", out.toString());
+        RequestDispatcher view = req.getRequestDispatcher("Template.jsp");
+        view.forward(req, resp);
     }
 
     /**
